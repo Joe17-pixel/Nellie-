@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Morning Boo Bear! 🐻❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #ffb7b2;
+            --secondary-pink: #ffdac1;
+            --dark-pink: #ff8b94;
+            /* A warm, attractive deep plum/berry color that looks professional yet cute */
+            --text-color: #4a2834; 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Using Quicksand as the main rounded body font */
+            font-family: 'Quicksand', 'Segoe UI', Roboto, sans-serif;
+            font-weight: 500;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffcad4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: var(--text-color);
+        }
+
+        /* Cute floating background elements */
+        .floating-emoji {
+            position: absolute;
+            font-size: 24px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 139, 148, 0.3);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            border: 4px solid white;
+            position: relative;
+            z-index: 10;
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .image-container img {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background-color: #fff8f8; /* Soft backing color while image loads */
+        }
+
+        .message-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 5px solid var(--dark-pink);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #d63384;
+            background: #fff0f3;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        /* Custom Alert Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            max-width: 350px;
+            width: 85%;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid var(--primary-pink);
+            color: var(--text-color);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .cute-btn {
+            background: linear-gradient(45deg, var(--dark-pink), #ffaaab);
+            color: #ffffff !important; /* Forces the text to stay crisp white */
+            border: none;
+            padding: 14px 25px;
+            font-size: 1.05rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700; /* Extra bold text visibility */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); /* Adds contrast behind letters */
+            box-shadow: 0 5px 15px rgba(255, 139, 148, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            width: 100%;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        .cute-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 139, 148, 0.6);
+            background: linear-gradient(45deg, #ff717b, #ff9496); /* Slightly darker fill on hover for readability */
+        }
+
+        .cute-btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-emoji" style="top: 10%; left: 10%; animation-delay: 0s;">🐻</div>
+    <div class="floating-emoji" style="top: 20%; right: 15%; animation-delay: 2s;">💖</div>
+    <div class="floating-emoji" style="bottom: 15%; left: 15%; animation-delay: 4s;">🥺</div>
+    <div class="floating-emoji" style="bottom: 20%; right: 10%; animation-delay: 1s;">✨</div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="https://media1.tenor.com/m/Le-Y5PYJB1QAAAAC/bear.gif" alt="Cute Teddy Bear">
+        </div>
+        
+        <div class="message-box">
+            Boo Bear you now awake...been thinking about you since I woke up from my sleep🥺..I wanna let you know that you mean so much to me😙...when you see this you should send me snap <span class="highlight">nga your smiling</span>😌 I wanna prove that your on good terms with me...
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="alertOne">
+        <div class="modal">
+            <div style="font-size: 40px; margin-bottom: 10px;">⛪✨</div>
+            <p>Since it's a Sunday I need one of those highlighted verses baby🥺...they motivate me alot.</p>
+            <button class="cute-btn" onclick="triggerNextAlert()">lemi check for the Bible now before I scroll on tiktok</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="alertTwo">
+        <div class="modal">
+            <div style="font-size: 40px; margin-bottom: 10px;">🎉🥳</div>
+            <p>Yeyyyyy💃💃💃💃.. that's my Dellieee😙</p>
+            <button class="cute-btn" onclick="closeAll()">Ease</button>
+        </div>
+    </div>
+
+    <script>
+        // Trigger the first alert automatically 1.5 seconds after the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('alertOne').classList.add('active');
+            }, 1500);
+        });
+
+        // Moves from the first pop up to the second one
+        function triggerNextAlert() {
+            document.getElementById('alertOne').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('alertTwo').classList.add('active');
+            }, 400); // smooth transition delay
+        }
+
+        // Closes the final pop up
+        function closeAll() {
+            document.getElementById('alertTwo').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
+
+
+
